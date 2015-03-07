@@ -37,7 +37,7 @@ public class CreatePost extends HttpServlet {
         String post = request.getParameter("userPost");
         Post newPost = new Post(post);
         
-        FilePostHandler handler = new FilePostHandler("post.txt");
+        FilePostHandler handler = new FilePostHandler("/var/lib/openshift/54f12fc7e0b8cd301d0001c1/app-root/data/post.txt");
         handler.addPost(newPost);
         
         response.sendRedirect("Posts");

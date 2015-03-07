@@ -37,7 +37,7 @@ public class Posts extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        PostHandler handler = new FilePostHandler("post.txt");
+        PostHandler handler = new FilePostHandler("/var/lib/openshift/54f12fc7e0b8cd301d0001c1/app-root/data/post.txt");
         
         request.setAttribute("posts", handler.getPosts());
         request.getRequestDispatcher("ShowPost.jsp").forward(request, response);

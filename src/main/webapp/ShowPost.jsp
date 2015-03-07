@@ -24,9 +24,6 @@
                 ${posts[postLength - status.count]}<br />
             </c:forEach>
                 
-            <%String dir = System.getenv("OPENSHIFT_DATA_DIR");
-                out.write(dir);
-            %>
         </div>
         
     </body>
