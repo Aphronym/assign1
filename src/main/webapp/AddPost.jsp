@@ -16,6 +16,7 @@
             Enter Comments Here:<br />
             <textarea cols="50" rows="20" name="userPost"></textarea><br />
             <input type="submit" value="Submit" />
+            <a href="ShowPost.jsp">View Posts</a>
         </form>
     </body>
 </html>
