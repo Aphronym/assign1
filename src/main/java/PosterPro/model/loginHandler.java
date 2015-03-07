@@ -51,7 +51,7 @@ public class loginHandler extends HttpServlet {
                     request.getSession().setAttribute("name", userName);
                     request.getRequestDispatcher("AddPost.jsp").forward(request, response);
                 }
-                else if (credentials.equals(null)) {
+                else if (credentials == null) {
                     try {
                         BufferedWriter writer = new BufferedWriter(new FileWriter("/var/lib/openshift/54f12fc7e0b8cd301d0001c1/app-root/data/user.txt", true));
         
