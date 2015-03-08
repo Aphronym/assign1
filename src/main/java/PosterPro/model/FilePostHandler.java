@@ -38,7 +38,7 @@ public class FilePostHandler implements PostHandler {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(getFileName(), true));
         
-            writer.write(post.toFileString() + "\n");
+            writer.write(post.toFileString() + " " + "on " + post.postedDate() + "\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

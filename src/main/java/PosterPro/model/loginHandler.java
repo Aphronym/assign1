@@ -36,41 +36,23 @@ public class loginHandler extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String name = "admin";
+        String word = "admin";
+        
         String userName = request.getParameter("user");
         String passWord = request.getParameter("pass");
         
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("/var/lib/openshift/54f12fc7e0b8cd301d0001c1/app-root/data/user.txt"));
-            
-            String line;
-            
-            while ((line = reader.readLine()) != null) {
-                String credentials = line;
-                
-                if (credentials.equals(userName + passWord)) {
-                    request.getSession().setAttribute("name", userName);
-                    request.getRequestDispatcher("AddPost.jsp").forward(request, response);
-                }
-                else if (credentials == null) {
-                    try {
-                        BufferedWriter writer = new BufferedWriter(new FileWriter("/var/lib/openshift/54f12fc7e0b8cd301d0001c1/app-root/data/user.txt", true));
-        
-                        writer.write(userName + passWord + "\n");
-                        writer.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                }
-                else
-                {
-                    request.getRequestDispatcher("badLogin.jsp").forward(request, response);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (userName.equals(name) && passWord.equals(word))
+        {
+            request.getSession().setAttribute("name", userName);
+            request.getSession().setAttribute("username", name);
+            request.getRequestDispatcher("AddPost.jsp").forward(request, response);
         }
-    
-        
+        else
+        {
+            request.getRequestDispatcher("badLogin.jsp").forward(request, response);
+        }
+ 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

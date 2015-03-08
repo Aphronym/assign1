@@ -5,6 +5,10 @@
  */
 package PosterPro.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author ronald
@@ -39,5 +43,15 @@ public class Post {
     
     public void loadFromFileString(String str){
         post = str;
+    }
+    
+    public String postedDate(){
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
+        
+        df.getTimeZone();
+        String formattedDate = df.format(date);
+        
+        return formattedDate;
     }
 }

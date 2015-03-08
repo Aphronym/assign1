@@ -21,6 +21,7 @@
             <c:set var="posts" value="${posts}" />
             <c:set var="postLength" value="${fn:length(posts)}" />
             <c:forEach items="${posts}" varStatus="status">
+                <strong>${name} said:</strong><br />
                 ${posts[postLength - status.count]}<br />
             </c:forEach>      
         </div>
